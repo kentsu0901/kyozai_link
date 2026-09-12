@@ -1,2 +1,24 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<div>対象年度：<span>2027年</span></div>
+<div>こんにちは、<%= current_user.name %>さん</div>
+
+<div>
+  <h2><%= link_to "教材一括登録", "#" %></h2>
+  <p>教材をまとめて登録する</p>
+</div>
+
+<div>
+  <h2><%= link_to "授業別教材一覧", "#" %></h2>
+  <p>授業ごとの教材登録状況を確認・変更する</p>
+</div>
+
+<% if current_user.role == "system_admin" %>
+  <div>
+    <h2><%= link_to "授業管理", "#" %></h2>
+    <p>授業の登録・編集・削除を行う</p>
+  </div>
+
+  <div>
+    <h2><%= link_to "ユーザー管理", "#" %></h2>
+    <p>ユーザーの登録・編集・担当教科の設定を行う</p>
+  </div>
+<% end %>
