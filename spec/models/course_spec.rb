@@ -17,10 +17,17 @@ RSpec.describe Course, type: :model do
         @course.name = ''
 
         expect(@course).to be_invalid
-        expect(
-          @course.errors.full_messages
-        ).to include(
+        expect(@course.errors.full_messages).to include(
           "Name can't be blank"
+        )
+      end
+
+      it 'gradeが空では登録できない' do
+        @course.grade = nil
+
+        expect(@course).to be_invalid
+        expect(@course.errors.full_messages).to include(
+          "Grade can't be blank"
         )
       end
 
@@ -28,9 +35,7 @@ RSpec.describe Course, type: :model do
         @course.subject = nil
 
         expect(@course).to be_invalid
-        expect(
-          @course.errors.full_messages
-        ).to include(
+        expect(@course.errors.full_messages).to include(
           'Subject must exist'
         )
       end
@@ -39,9 +44,7 @@ RSpec.describe Course, type: :model do
         @course.academic_year = nil
 
         expect(@course).to be_invalid
-        expect(
-          @course.errors.full_messages
-        ).to include(
+        expect(@course.errors.full_messages).to include(
           'Academic year must exist'
         )
       end

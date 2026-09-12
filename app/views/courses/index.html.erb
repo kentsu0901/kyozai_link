@@ -1,0 +1,13 @@
+<h1>授業管理</h1>
+
+<% @subjects.each do |subject| %>
+  <h2><%= subject.name %></h2>
+
+  <% subject.courses.pluck(:grade).uniq.sort.each do |grade| %>
+    <h3><%= grade %>年</h3>
+
+    <% subject.courses.where(grade: grade).each do |course| %>
+      <p><%= course.name %></p>
+    <% end %>
+  <% end %>
+<% end %>
