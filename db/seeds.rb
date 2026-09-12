@@ -16,3 +16,5 @@ subjects.each do |subject|
     record.sort_order = subject[:sort_order]
   end
 end
+
+AcademicYear.find_or_create_by!(year: 2027)
