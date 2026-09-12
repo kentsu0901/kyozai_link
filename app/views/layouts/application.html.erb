@@ -17,9 +17,14 @@
           <%= link_to "Kyozai Link", root_path %>
         </div>
 
-        <div class="header-nav">
+      <div class="header-nav">
+        <div class="header-user">
+          <%= current_user.name %>さん
+        </div>
+        <div>
           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
         </div>
+      </div>
       </header>
     <% end %>
 

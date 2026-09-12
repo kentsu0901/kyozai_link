@@ -1,0 +1,32 @@
+header {
+  width: 100vw;
+  height: 80px;
+  background-color: #1F3A5F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  .header-logo a {
+    font-size: 30px;
+    font-weight: 800;
+    color: #d9e2ec;
+    text-decoration: none;
+  }
+
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header-user {
+  font-size: 18px;
+  color: #fff;
+}
+
+  .header-nav a {
+  font-size: 18px;
+  color: #d9e2ec;
+  text-decoration: none;
+}
