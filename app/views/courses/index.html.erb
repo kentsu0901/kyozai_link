@@ -1,13 +1,25 @@
-<h1>授業管理</h1>
+<div class="courses-page">
+  <h1 class="courses-title">授業管理</h1>
 
-<% @subjects.each do |subject| %>
-  <h2><%= subject.name %></h2>
+  <div class="subjects-container">
+    <% @subjects.each do |subject| %>
+      <div class="subject-card">
+        <h2 class="subject-name"><%= subject.name %></h2>
 
-  <% subject.courses.pluck(:grade).uniq.sort.each do |grade| %>
-    <h3><%= grade %>年</h3>
+        <% subject.courses.pluck(:grade).uniq.sort.each do |grade| %>
+          <div class="grade-group">
+            <h3 class="grade-title"><%= grade %>年</h3>
 
-    <% subject.courses.where(grade: grade).each do |course| %>
-      <p><%= course.name %></p>
+            <ul class="course-list">
+              <% subject.courses.where(grade: grade).each do |course| %>
+                <li class="course-item">
+                  <%= course.name %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
