@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :course do
-    name { "MyString" }
-    subject { nil }
-    academic_year { nil }
+    name { '数学Ⅰ' }
+    association :subject
+    association :academic_year
   end
 end
