@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @subjects = Subject.order(:sort_order)
   end
@@ -49,5 +50,9 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name, :grade, :subject_id, :academic_year_id)
+  end
+
+  def authenticate_admin!
+    redirect_to root_path unless current_user.role == 'system_admin'
   end
 end

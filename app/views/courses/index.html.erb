@@ -2,7 +2,9 @@
 
   <div class="courses-header">
     <h1 class="courses-title">授業管理</h1>
-    <%= link_to "授業を新規登録", new_course_path, class: "primary-button" %>
+    <% if current_user.role == "system_admin" %>
+      <%= link_to "授業を新規登録", new_course_path, class: "primary-button" %>
+    <% end %>
   </div>
 
   <div class="subjects-container">
@@ -18,10 +20,12 @@
               <% subject.courses.where(grade: grade).each do |course| %>
                 <li class="course-item">
                   <span><%= course.name %></span>
-                  <div class="course-actions">
-                    <%= link_to "編集", edit_course_path(course) %>
-                    <%= link_to "削除", course_path(course),data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
-                   </div>
+                  <% if current_user.role == "system_admin" %>
+                    <div class="course-actions">
+                      <%= link_to "編集", edit_course_path(course) %>
+                      <%= link_to "削除", course_path(course),data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+                    </div>
+                  <% end %>
                 </li>
               <% end %>
             </ul>
