@@ -7,7 +7,7 @@ RSpec.describe Subject, type: :model do
 
   describe '教科情報の登録' do
     context '登録できる場合' do
-      it 'nameとsort_orderが正しく入力されていれば登録できる' do
+      it '必要な情報が正しく入力されていれば登録できる' do
         expect(@subject).to be_valid
       end
     end

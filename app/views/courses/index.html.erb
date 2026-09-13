@@ -1,0 +1,37 @@
+<div class="courses-page">
+
+  <div class="courses-header">
+    <h1 class="courses-title">授業管理</h1>
+    <% if current_user.role == "system_admin" %>
+      <%= link_to "授業を新規登録", new_course_path, class: "primary-button" %>
+    <% end %>
+  </div>
+
+  <div class="subjects-container">
+    <% @subjects.each do |subject| %>
+      <div class="subject-card">
+        <h2 class="subject-name"><%= subject.name %></h2>
+
+        <% subject.courses.pluck(:grade).uniq.sort.each do |grade| %>
+          <div class="grade-group">
+            <h3 class="grade-title"><%= grade %>年</h3>
+
+            <ul class="course-list">
+              <% subject.courses.where(grade: grade).each do |course| %>
+                <li class="course-item">
+                  <span><%= course.name %></span>
+                  <% if current_user.role == "system_admin" %>
+                    <div class="course-actions">
+                      <%= link_to "編集", edit_course_path(course) %>
+                      <%= link_to "削除", course_path(course),data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -10,9 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-  *= require reset
-  *= require login
-  *= require header
-  *= require dashboard
+ *= require reset
+ *= require header
+ *= require dashboard
+ *= require courses
+ *= require error_messages
+ *= require form
+ *= require buttons
  *= require_self
  */
