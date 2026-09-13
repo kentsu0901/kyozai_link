@@ -21,6 +21,30 @@ class CoursesController < ApplicationController
     end
   end
 
+  def edit
+    @course = Course.find(params[:id])
+    @subjects = Subject.order(:sort_order)
+    @academic_years = AcademicYear.order(:year)
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    @subjects = Subject.order(:sort_order)
+    @academic_years = AcademicYear.order(:year)
+
+    if @course.update(course_params)
+      redirect_to courses_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    course = Course.find(params[:id])
+    course.destroy
+    redirect_to courses_path
+  end
+
   private
 
   def course_params

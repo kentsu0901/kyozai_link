@@ -63,4 +63,13 @@
 .course-item {
   margin-bottom: 8px;
   line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9e2ec;
+}
+
+.course-actions {
+  display: flex;
+  gap: 10px;
 }

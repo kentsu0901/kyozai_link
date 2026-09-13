@@ -17,7 +17,11 @@
             <ul class="course-list">
               <% subject.courses.where(grade: grade).each do |course| %>
                 <li class="course-item">
-                  <%= course.name %>
+                  <span><%= course.name %></span>
+                  <div class="course-actions">
+                    <%= link_to "編集", edit_course_path(course) %>
+                    <%= link_to "削除", course_path(course),data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } %>
+                   </div>
                 </li>
               <% end %>
             </ul>
