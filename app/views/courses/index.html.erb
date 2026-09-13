@@ -1,5 +1,9 @@
 <div class="courses-page">
-  <h1 class="courses-title">授業管理</h1>
+
+  <div class="courses-header">
+    <h1 class="courses-title">授業管理</h1>
+    <%= link_to "授業を新規登録", new_course_path, class: "primary-button" %>
+  </div>
 
   <div class="subjects-container">
     <% @subjects.each do |subject| %>

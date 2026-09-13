@@ -1,7 +1,15 @@
-<div class="login">
-  <div class="login-card">
-    <h2 class="login-title">Kyozai Link</h2>
-    <p class="login-subtitle">ログイン</p>
+<div class="form-page">
+  <div class="form-card">
+    <h2 class="form-title">Kyozai Link</h2>
+    <p class="form-subtitle">ログイン</p>
+
+    <% if flash[:alert] %>
+      <div class="error-alert">
+        <ul>
+          <li class="error-message"><%= flash[:alert] %></li>
+        </ul>
+      </div>
+    <% end %>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">

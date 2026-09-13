@@ -1,0 +1,26 @@
+.primary-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #1F3A5F;
+  color: #fff;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background-color: #2F5D8C;
+}
+
+.secondary-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #1F3A5F;
+  border-radius: 4px;
+  color: #1F3A5F;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.secondary-button:hover {
+  background-color: #f7f9fc;
+}

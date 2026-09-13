@@ -5,10 +5,16 @@
 }
 
 .courses-title {
-  margin-bottom: 30px;
   font-size: 28px;
   font-weight: bold;
   color: #1F3A5F;
+}
+
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .subjects-container {
