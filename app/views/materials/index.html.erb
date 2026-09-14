@@ -1,0 +1,45 @@
+<div class="materials-page">
+
+  <div class="materials-header">
+    <h1 class="materials-title">教材管理</h1>
+    <%= link_to "教材を新規登録", new_material_path, class: "primary-button" %>
+  </div>
+
+  <div class="materials-subjects-container">
+    <% @subjects.each do |subject| %>
+      <div class="subject-card">
+        <h2 class="subject-name"><%= subject.name %></h2>
+
+        <% subject.materials.pluck(:material_type).uniq.sort.each do |material_type| %>
+          <div class="material-type-group">
+            <h3 class="material-type-title">
+              <%= material_type == "textbook" ? "教科書" : "副教材" %>
+            </h3>
+
+            <ul class="material-list">
+              <% subject.materials.where(material_type: material_type).each do |material| %>
+                <li class="material-item">
+                  <span class="material-name"><%= material.name %></span>
+                  <span class="material-publisher"><%= material.publisher %></span>
+                  <span class="material-price"><%= material.price %>円</span>
+
+                  <% if current_user.role == "system_admin" || current_user.subject_ids.include?(material.subject_id) %>
+                    <div class="material-actions">
+                      <%= link_to "編集", edit_material_path(material) %>
+                      <%= link_to "削除",
+                                  material_path(material),
+                                  data: {
+                                    turbo_method: :delete,
+                                    turbo_confirm: "削除しますか？"
+                                  } %>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
