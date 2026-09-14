@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :course_material do
-    course { nil }
-    material { nil }
+    association :course
+    association :material
   end
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user_subject do
-    user { nil }
-    subject { nil }
+    association :user
+    association :subject
   end
 end
