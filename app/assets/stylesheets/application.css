@@ -17,5 +17,6 @@
  *= require error_messages
  *= require form
  *= require buttons
+ *= require materials
  *= require_self
  */

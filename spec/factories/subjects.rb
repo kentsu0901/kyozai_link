@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :subject do
-    name { '数学' }
-    sort_order { 4 }
+    sequence(:name) { |n| "教科#{n}" }
+    sequence(:sort_order) { |n| n }
   end
 end

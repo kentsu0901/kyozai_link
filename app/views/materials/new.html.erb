@@ -1,0 +1,48 @@
+<div class="form-page">
+  <div class="form-card">
+    <div class="form-back">
+      <%= link_to "← 教材管理へ戻る", materials_path %>
+    </div>
+
+    <h2 class="form-title">教材の情報を入力</h2>
+
+    <% if flash[:notice] %>
+      <div class="success-message">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= form_with model: @material, local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="field">
+        <%= f.label :name, "教材名" %>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :publisher, "出版社" %>
+        <%= f.text_field :publisher %>
+      </div>
+
+      <div class="field">
+        <%= f.label :material_type, "教材種別" %>
+        <%= f.select :material_type, [["教科書", "textbook"], ["副教材", "supplementary"]] %>
+      </div>
+
+      <div class="field">
+        <%= f.label :price, "価格" %>
+        <%= f.number_field :price, min: 0 %>
+      </div>
+
+      <div class="field">
+        <%= f.label :subject_id, "教科" %>
+        <%= f.collection_select :subject_id, @subjects, :id, :name %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
+  </div>
+</div>

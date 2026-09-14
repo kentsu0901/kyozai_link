@@ -5,7 +5,7 @@
 
   <div class="dashboard-menu">
     <div class="dashboard-card">
-      <h2><%= link_to "教材登録", "#" %></h2>
+      <h2><%= link_to "教材登録", materials_path %></h2>
       <p>教材の登録・編集・削除を行う</p>
     </div>
 
@@ -14,7 +14,7 @@
       <p>授業ごとの教材登録状況を確認・変更する</p>
     </div>
 
-    <% if current_user.role == "system_admin" %>
+    <% if current_user.system_admin? %>
       <div class="dashboard-card">
         <h2><%= link_to "授業管理", courses_path %></h2>
         <p>授業の登録・編集・削除を行う</p>
