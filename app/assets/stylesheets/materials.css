@@ -42,8 +42,8 @@
 }
 
 .material-list {
-  padding-left: 0;
-  list-style: none;
+  padding-left: 20px;
+  list-style: disc;
 }
 
 .material-item {

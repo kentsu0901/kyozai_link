@@ -10,7 +10,7 @@
       <div class="subject-card">
         <h2 class="subject-name"><%= subject.name %></h2>
 
-        <% subject.materials.pluck(:material_type).uniq.sort.each do |material_type| %>
+        <% Material.material_types.keys.each do |material_type| %>
           <div class="material-type-group">
             <h3 class="material-type-title">
               <%= material_type == "textbook" ? "教科書" : "副教材" %>
@@ -23,7 +23,7 @@
                   <span class="material-publisher"><%= material.publisher %></span>
                   <span class="material-price"><%= material.price %>円</span>
 
-                  <% if current_user.role == "system_admin" || current_user.subject_ids.include?(material.subject_id) %>
+                  <% if current_user.system_admin? || current_user.subject_ids.include?(material.subject_id) %>
                     <div class="material-actions">
                       <%= link_to "編集", edit_material_path(material) %>
                       <%= link_to "削除",
