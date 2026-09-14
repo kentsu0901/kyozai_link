@@ -1,9 +1,10 @@
 FactoryBot.define do
   factory :material do
-    name { "MyString" }
-    publisher { "MyString" }
-    material_type { "MyString" }
-    price { 1 }
-    subject { nil }
+    name { "数学Ⅰ" }
+    publisher { "数研出版" }
+    material_type { "textbook" }
+    price { 1000 }
+
+    association :subject
   end
 end

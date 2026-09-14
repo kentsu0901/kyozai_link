@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_09_12_085734) do
+ActiveRecord::Schema[7.1].define(version: 2026_09_14_005942) do
   create_table "academic_years", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "year", null: false
     t.datetime "created_at", null: false
@@ -27,6 +27,17 @@ ActiveRecord::Schema[7.1].define(version: 2026_09_12_085734) do
     t.integer "grade", null: false
     t.index ["academic_year_id"], name: "index_courses_on_academic_year_id"
     t.index ["subject_id"], name: "index_courses_on_subject_id"
+  end
+
+  create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "publisher", null: false
+    t.string "material_type", null: false
+    t.integer "price", default: 0, null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_materials_on_subject_id"
   end
 
   create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -54,4 +65,5 @@ ActiveRecord::Schema[7.1].define(version: 2026_09_12_085734) do
 
   add_foreign_key "courses", "academic_years"
   add_foreign_key "courses", "subjects"
+  add_foreign_key "materials", "subjects"
 end
