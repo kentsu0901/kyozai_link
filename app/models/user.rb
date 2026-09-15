@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_subjects
+  has_many :user_subjects, dependent: :destroy
   has_many :subjects, through: :user_subjects
 
   enum :role, {

@@ -1,0 +1,27 @@
+<div class="users-page">
+  <div class="users-header">
+    <h1 class="users-title">ユーザー管理</h1>
+    <%= link_to "ユーザーを新規登録", new_user_path, class: "primary-button" %>
+  </div>
+
+  <div class="users-list">
+    <% @users.each do |user| %>
+      <div class="user-item">
+        <span class="user-name"><%= user.name %></span>
+
+        <span class="user-role">
+          <%= user.system_admin? ? "管理者" : "一般" %>
+        </span>
+
+        <span class="user-subjects">
+          <%= user.subjects.pluck(:name).join("・") %>
+        </span>
+
+        <div class="user-actions">
+          <%= link_to "編集", edit_user_path(user) %>
+          <%= link_to "削除", user_path(user), data: {turbo_method: :delete, turbo_confirm: "削除しますか？"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
