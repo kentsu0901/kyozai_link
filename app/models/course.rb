@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :subject
   belongs_to :academic_year
-  
+
   has_many :course_materials
   has_many :materials, through: :course_materials
 

@@ -1,7 +1,9 @@
 <div class="users-page">
   <div class="users-header">
     <h1 class="users-title">ユーザー管理</h1>
-    <%= link_to "ユーザーを新規登録", new_user_path, class: "primary-button" %>
+    <% if current_user.system_admin? %>
+      <%= link_to "ユーザーを新規登録", new_user_path, class: "primary-button" %>
+    <% end %>
   </div>
 
   <div class="users-list">
@@ -18,8 +20,13 @@
         </span>
 
         <div class="user-actions">
-          <%= link_to "編集", edit_user_path(user) %>
-          <%= link_to "削除", user_path(user), data: {turbo_method: :delete, turbo_confirm: "削除しますか？"} %>
+          <% if current_user.system_admin? || current_user == user %>
+            <%= link_to "編集", edit_user_path(user) %>
+          <% end %>
+
+          <% if current_user.system_admin? %>
+            <%= link_to "削除", user_path(user), data: {turbo_method: :delete, turbo_confirm: "削除しますか？"} %>
+          <% end %>
         </div>
       </div>
     <% end %>
