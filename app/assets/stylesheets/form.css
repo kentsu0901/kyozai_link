@@ -101,3 +101,24 @@
   background-color: #eef7ee;
   text-align: center;
 }
+
+/* =========================
+   ユーザー登録画面専用
+========================= */
+
+.subject-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.subject-checkbox input {
+  width: auto;
+  padding: 0;
+}
+
+.subject-checkbox label {
+  display: inline;
+  margin-bottom: 0;
+}
