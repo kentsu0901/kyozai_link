@@ -30,7 +30,8 @@ RSpec.describe CourseMaterial, type: :model do
       it '同じcourseとmaterialの組み合わせでは登録できない' do
         course_material = FactoryBot.create(:course_material)
 
-        another_course_material = FactoryBot.build(:course_material, course: course_material.course, material: course_material.material)
+        another_course_material = FactoryBot.build(:course_material, course: course_material.course,
+                                                                     material: course_material.material)
 
         expect(another_course_material).to be_invalid
       end

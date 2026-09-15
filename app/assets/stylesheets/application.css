@@ -18,5 +18,6 @@
  *= require form
  *= require buttons
  *= require materials
+ *= require users
  *= require_self
  */
