@@ -1,0 +1,26 @@
+<div class="form-page">
+  <div class="form-card course-material-setting-card">
+
+    <h1 class="form-title"><%= @subject.name %>の教材設定</h1>
+
+    <%= form_with url: subject_course_material_setting_path(@subject), method: :patch, local: true do %>
+      <% @courses.each do |course| %>
+        <div class="course-setting">
+          <h2 class="course-setting-title"><%= course.name %></h2>
+          <% @materials.each do |material| %>
+            <div class="material-checkbox">
+              <%= check_box_tag "course_materials[#{course.id}][]",
+                                material.id %>
+              <%= material.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= submit_tag "更新" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
