@@ -19,5 +19,6 @@
  *= require buttons
  *= require materials
  *= require users
+ *= require course_materials
  *= require_self
  */
