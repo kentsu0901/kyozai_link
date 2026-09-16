@@ -9,8 +9,9 @@
           <h2 class="course-setting-title"><%= course.name %></h2>
           <% @materials.each do |material| %>
             <div class="material-checkbox">
-              <%= check_box_tag "course_materials[#{course.id}][]",
-                                material.id %>
+            <%= check_box_tag "course_materials[#{course.id}][]",
+                              material.id,
+                              course.material_ids.include?(material.id) %>
               <%= material.name %>
             </div>
           <% end %>
