@@ -53,3 +53,5 @@ production:
   database: kyozai_link_production
   username: kyozai_link
   password: <%= ENV["KYOZAI_LINK_DATABASE_PASSWORD"] %>
+  socket: /var/lib/mysql/mysql.sock
+  
