@@ -111,3 +111,20 @@ course_data.each do |subject_name, courses|
     )
   end
 end
+
+admin_email = ENV["SYSTEM_ADMIN_EMAIL"]
+admin_password = ENV["SYSTEM_ADMIN_PASSWORD"]
+
+raise "SYSTEM_ADMIN_EMAIL が設定されていません" if admin_email.blank?
+raise "SYSTEM_ADMIN_PASSWORD が設定されていません" if admin_password.blank?
+
+admin = User.find_or_initialize_by(email: admin_email)
+
+if admin.new_record?
+  admin.name = "システム管理者"
+  admin.role = :system_admin
+  admin.password = admin_password
+  admin.save!
+elsif !admin.system_admin?
+  raise "SYSTEM_ADMIN_EMAIL は既存の一般ユーザーに使用されています"
+end
