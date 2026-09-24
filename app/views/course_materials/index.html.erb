@@ -1,0 +1,19 @@
+<div class="course-materials-page">
+  <div class="course-materials-header">
+    <h1 class="course-materials-title">授業別教材一覧</h1>
+  </div>
+
+  <div class="course-materials-list">
+    <% @subjects.each do |subject| %>
+      <div class="course-materials-item">
+        <span class="course-materials-subject-name">
+          <%= subject.name %>
+        </span>
+
+        <%= link_to "教材設定",
+                    edit_subject_course_material_setting_path(subject),
+                    class: "secondary-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

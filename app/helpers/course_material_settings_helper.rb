@@ -1,0 +1,2 @@
+module CourseMaterialSettingsHelper
+end
