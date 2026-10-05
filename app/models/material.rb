@@ -1,6 +1,6 @@
 class Material < ApplicationRecord
   belongs_to :subject
-  has_many :course_materials
+  has_many :course_materials, dependent: :destroy
   has_many :courses, through: :course_materials
 
   enum :material_type, {
