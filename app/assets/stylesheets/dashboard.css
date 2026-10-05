@@ -43,3 +43,74 @@
 .dashboard-card:hover {
   background-color: #f7f9fc;
 }
+
+/* 業務の流れ */
+.dashboard-flow {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 2px solid #d9e2ec;
+}
+
+.dashboard-flow > h2 {
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #1F3A5F;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+.flow-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #1F3A5F;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.flow-step h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  color: #333;
+}
+
+.flow-step p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.flow-arrow {
+  margin-left: 18px;
+  font-size: 24px;
+  color: #9aa5b1;
+}
+
+/* スマートフォン表示 */
+@media (max-width: 768px) {
+  .dashboard {
+    width: 90%;
+  }
+
+  .dashboard-menu {
+    gap: 20px;
+  }
+
+  .dashboard-card {
+    width: 100%;
+  }
+
+  .flow-step {
+    align-items: flex-start;
+  }
+}

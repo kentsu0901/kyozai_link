@@ -4,26 +4,86 @@
   </div>
 
   <div class="dashboard-menu">
-    <div class="dashboard-card">
-      <h2><%= link_to "教材登録", materials_path %></h2>
-      <p>教材の登録・編集・削除を行う</p>
-    </div>
-
-    <div class="dashboard-card">
-      <h2><%= link_to "授業別教材一覧", course_materials_path %></h2>
-      <p>授業ごとの教材登録状況を確認・変更する</p>
-    </div>
-
-    <div class="dashboard-card">
-      <h2><%= link_to "ユーザー一覧", users_path %></h2>
-      <p>ユーザーと担当教科を確認する</p>
-    </div>
 
     <% if current_user.system_admin? %>
       <div class="dashboard-card">
-        <h2><%= link_to "授業管理", courses_path %></h2>
-        <p>授業の登録・編集・削除を行う</p>
+        <h2><%= link_to "1.授業管理", courses_path %></h2>
+        <p>
+          授業の登録・編集・削除を行う
+          <br>
+          (管理者が実施　管理者のみ表示される)
+        </p>
       </div>
     <% end %>
+
+    <div class="dashboard-card">
+      <h2><%= link_to "2.ユーザー一覧", users_path %></h2>
+      <p>
+        ユーザーと担当教科を確認する
+        <br>
+        (管理者が追加　一般ユーザーは自身の編集のみ)
+      </p>
+    </div>
+
+    <div class="dashboard-card">
+      <h2><%= link_to "3.教材登録", materials_path %></h2>
+      <p>
+        教材の登録・編集・削除を行う
+        <br>
+        (一般ユーザーが実施)
+      </p>
+    </div>
+
+    <div class="dashboard-card">
+      <h2><%= link_to "4.授業別教材一覧", course_materials_path %></h2>
+      <p>
+        授業ごとの教材登録状況を確認・変更する
+        <br>
+        (一般ユーザーが実施)
+      </p>
+    </div>
+
+  </div>
+
+  <div class="dashboard-flow">
+    <h2>業務の流れ</h2>
+
+    <div class="flow-step">
+      <div class="flow-number">1</div>
+      <div>
+        <h3>管理者が授業情報を登録</h3>
+        <p>新年度の授業情報を登録し、科目・学年・担当教員を設定します。</p>
+      </div>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-step">
+      <div class="flow-number">2</div>
+      <div>
+        <h3>教員が使用教材を登録</h3>
+        <p>各教員が担当する授業で使用する教科書・副教材などを登録します。</p>
+      </div>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-step">
+      <div class="flow-number">3</div>
+      <div>
+        <h3>授業ごとの使用教材を登録・確認</h3>
+        <p>登録した教材を担当授業に紐付け、授業ごとの使用教材を整理します。</p>
+      </div>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="flow-step">
+      <div class="flow-number">4</div>
+      <div>
+        <h3>学校全体の教材登録状況を確認</h3>
+        <p>授業別教材一覧から登録状況を確認し、教材情報を一元的に管理します。</p>
+      </div>
+    </div>
   </div>
 </div>
